@@ -1,12 +1,14 @@
 export type Weather = {
+  visibility: number;
+  dt: number;
+  id: number;
+  name: string;
   coordinates: Coordinates;
   sys: Sys;
-  weather: WeatherType;
+  weather: WeatherType[];
   main: Main;
   wind: Wind;
   clouds: Clouds;
-  weatherdata: WeatherData;
-  weatherresponse: WeatherResponse;
 };
 
 type Coordinates = {
@@ -46,22 +48,4 @@ type Wind = {
 
 type Clouds = {
   all: number;
-};
-
-type WeatherData = {
-  coord: Coordinates;
-  sys: Sys;
-  weather: Weather[];
-  main: Main;
-  visibility: number;
-  wind: Wind;
-  clouds: Clouds;
-  dt: number;
-  id: number;
-  name: string;
-};
-
-type WeatherResponse = {
-  cnt: number;
-  list: WeatherData[];
 };

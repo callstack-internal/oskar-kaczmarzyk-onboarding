@@ -21,7 +21,7 @@ export const useGetGroupForecast = (): {
   });
 
   return {
-    data: data ? data.list : [],
+    data: data?.list ?? [],
     isFetching,
     isError,
   };

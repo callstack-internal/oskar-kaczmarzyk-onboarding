@@ -1,0 +1,1 @@
+export {useGetGroupForecast} from './useGetGroupForecast';

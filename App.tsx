@@ -8,7 +8,7 @@
 import React, {FC} from 'react';
 import {NavigationContainer} from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {Home} from './src/screens';
+import {Details, Home} from './src/screens';
 
 const Stack = createNativeStackNavigator();
 
@@ -20,6 +20,11 @@ export const App: FC = () => {
           name="Home"
           component={Home}
           options={{title: 'Weather'}}
+        />
+        <Stack.Screen
+          name="Details"
+          component={Details}
+          options={{title: 'Details', headerBackTitle: 'Back'}}
         />
       </Stack.Navigator>
     </NavigationContainer>

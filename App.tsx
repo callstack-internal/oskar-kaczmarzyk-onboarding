@@ -6,12 +6,22 @@
  */
 
 import React, {FC} from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {Home} from './src/screens';
+
+const Stack = createNativeStackNavigator();
 
 export const App: FC = () => {
   return (
-    <SafeAreaView>
-      <StatusBar />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen
+          name="Home"
+          component={Home}
+          options={{title: 'Weather'}}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };

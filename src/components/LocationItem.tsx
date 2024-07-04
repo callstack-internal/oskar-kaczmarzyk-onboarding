@@ -32,10 +32,8 @@ export const LocationItem: FC<LocationItemProps> = ({weather, onPress}) => {
         </View>
       </View>
 
-      <View style={styles.innerContainer}>
-        <View style={styles.tempContainer}>
-          <Text style={(styles.city, {color: '#FFF'})}>{temp} °F</Text>
-        </View>
+      <View style={styles.tempContainer}>
+        <Text style={(styles.city, {color: '#FFF'})}>{temp} °F</Text>
       </View>
     </Pressable>
   );
@@ -44,7 +42,7 @@ export const LocationItem: FC<LocationItemProps> = ({weather, onPress}) => {
 const styles = StyleSheet.create({
   container: {
     paddingVertical: 8,
-    paddingHorizontal: 4,
+    paddingHorizontal: 12,
     flexDirection: 'row',
     justifyContent: 'space-between',
     alignItems: 'center',

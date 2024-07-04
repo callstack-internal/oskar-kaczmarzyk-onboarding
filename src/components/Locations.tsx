@@ -17,7 +17,7 @@ export const Locations: FC<LocationsProps> = ({data}) => {
       renderItem={({item}) => (
         <LocationItem
           weather={item}
-          onPress={() => navigate('Details' as never)}
+          onPress={() => navigate('Details', {id: item.id})}
         />
       )}
     />

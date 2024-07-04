@@ -1,21 +1,14 @@
 import React, {FC} from 'react';
 import {Locations} from '../components';
 import {useGetGroupForecast} from '../hooks';
-import {StyleSheet, View} from 'react-native';
+import {Wrapper} from './Wrapper';
 
 export const Home: FC = () => {
   const {data} = useGetGroupForecast();
 
   return (
-    <View style={styles.container}>
+    <Wrapper>
       <Locations data={data} />
-    </View>
+    </Wrapper>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#E9E3E6',
-  },
-});

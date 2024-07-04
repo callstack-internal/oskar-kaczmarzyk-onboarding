@@ -1,12 +1,13 @@
 import {API_URL, API_KEY} from '@env';
-import {useQuery} from '@tanstack/react-query';
+import {QueryObserverResult, useQuery} from '@tanstack/react-query';
 import {mapLocationCodes} from '../helpers/mapLocationCodes';
 import {Weather} from '../types';
 
 export const useGetGroupForecast = (): {
   data: Weather[];
-  isFetching: boolean;
+  isLoading: boolean;
   isError: boolean;
+  refetch: () => Promise<QueryObserverResult<any, Error>>;
 } => {
   const URI =
     `${API_URL}/group?` +
@@ -15,14 +16,15 @@ export const useGetGroupForecast = (): {
       appId: API_KEY.toString(),
     }).toString();
 
-  const {data, isFetching, isError} = useQuery({
+  const {data, isError, isLoading, refetch} = useQuery({
     queryKey: ['groupForecast'],
     queryFn: () => fetch(URI).then(res => res.json()),
   });
 
   return {
     data: data?.list ?? [],
-    isFetching,
+    isLoading,
     isError,
+    refetch,
   };
 };
